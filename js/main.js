@@ -1,4 +1,52 @@
 'use strict';
+
+// Подстановка товара и модалка
+const orderForm = document.getElementById('orderForm');
+
+async function getOrderProduct() {
+	const params = new URLSearchParams(window.location.search);
+	const productId = params.get('id');
+	if (!productId) return;
+
+	const products = (await import('../data/products.json', { with: { type: 'json' } })).default.products;
+	const product = products.find(p => p.id === productId);
+	if (!product) return;
+
+	const productInput = document.getElementById('orderProduct');
+	const articleInput = document.getElementById('orderArticle');
+
+	if (productInput) productInput.value = product.name;
+	if (articleInput) articleInput.value = product.id;
+}
+
+// Модальное окно
+const successModal = document.getElementById('successModal');
+
+function openModal() {
+	successModal.classList.add('modal--open');
+}
+
+function closeModal() {
+	successModal.classList.remove('modal--open');
+}
+
+if (successModal) {
+	successModal.querySelectorAll('[data-modal-close]').forEach(el => {
+		el.addEventListener('click', closeModal);
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') closeModal();
+	});
+}
+
+if (orderForm) {
+	orderForm.addEventListener('submit', (e) => {
+		e.preventDefault();
+		openModal();
+	});
+}
+
 // Горизонтальная прокрутка для отзывов
 const reviewsTrack = document.getElementById('revTrack');
 const reviewsPrev  = document.getElementById('revPrev');
@@ -259,5 +307,9 @@ function typeLetter(fullText, element, i, speed) {
 	
 	if (productSection) {
 		getProduct();
+	}
+
+	if (orderForm) {
+		getOrderProduct();
 	}
 })();
