@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Каталог товаров для котиков в Meow Market. Игрушки, корм, лежанки, средства для ухода и аксессуары. Найдите всё необходимое для вашего любимца!">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Каталог товаров - Meow Market">
+	<meta property="og:description" content="Игрушки, корм, лежанки и аксессуары для котиков. Выбирайте лучшее для любимого питомца!">
+	<meta property="og:image" content="https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/images/icon.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<link rel="icon" href="images/icon.svg" type="image/svg+xml">
+	<title>Meow Market - Каталог</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="site-header__logo">
+			<a class="site-header__logo-img" href="index.html">
+				<img src="images/logo.gif" alt="Логотип магазина" />
+			</a>
+			<a class="site-header__logo-text" href="index.html">Meow Market</a>
+		</div>
+		<div class="site-header__nav-wrapper">
+			<nav class="site-nav">
+				<ul class="site-nav__list">
+					<li class="site-nav__item ">
+						<a class="site-nav__link" href="index.html">Главная</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="#advantages">Преимущества</a>
+					</li>
+					<li class="site-nav__item site-nav__item--active">
+						<a class="site-nav__link" href="catalog.html">Каталог</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="order.html">Заказать</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="contacts.html">Контакты</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<section class="catalog">
+			<div class="filters-container">
+				<aside class="filters">
+					<h2 class="filters__title">Фильтры</h2>
+					<form class="filters__form" action="#" method="get">
+						
+						<!-- Сортировка -->
+						<div class="filters__sort">
+							<label class="filters__sort-label" for="sort">Сортировать:</label>
+							<select class="filters__sort-select" id="sort" name="sort">
+								<option value="popular">По популярности</option>
+								<option value="price-asc">Сначала дешёвые</option>
+								<option value="price-desc">Сначала дорогие</option>
+								<option value="new">Сначала новинки</option>
+							</select>
+						</div>
+
+						<!-- Категории -->
+						<fieldset class="filters__group">
+							<legend class="filters__legend">Категория</legend>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="category" value="toys">
+								<span class="filters__text">Игрушки</span>
+							</label>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="category" value="food">
+								<span class="filters__text">Корм и лакомства</span>
+							</label>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="category" value="beds">
+								<span class="filters__text">Лежанки и домики</span>
+							</label>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="category" value="clothes">
+								<span class="filters__text">Одежда</span>
+							</label>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="category" value="care">
+								<span class="filters__text">Уход и гигиена</span>
+							</label>
+						</fieldset>
+				
+						<!-- Цена -->
+						<fieldset class="filters__group">
+							<legend class="filters__legend">Цена, ₽</legend>
+				
+							<div class="filters__price-row">
+								<label class="filters__price-label">
+									<span class="filters__price-text">от</span>
+									<input class="filters__price-input" type="number" name="price-min" min="0" placeholder="0">
+								</label>
+				
+								<label class="filters__price-label">
+									<span class="filters__price-text">до</span>
+									<input class="filters__price-input" type="number" name="price-max" min="0" placeholder="5000">
+								</label>
+							</div>
+						</fieldset>
+				
+						<!-- Наличие скидки -->
+						<fieldset class="filters__group">
+							<legend class="filters__legend">Особенности</legend>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="feature" value="discount">
+								<span class="filters__text">Со скидкой</span>
+							</label>
+				
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="feature" value="new">
+								<span class="filters__text">Новинки</span>
+							</label>
+
+							<label class="filters__label">
+								<input class="filters__checkbox" type="checkbox" name="feature" value="hit">
+								<span class="filters__text">Хиты</span>
+							</label>
+						</fieldset>
+				
+						<!-- Кнопки -->
+						<div class="filters__actions">
+							<button class="button filters__button filters__button--apply" type="submit">Применить</button>
+							<button class="button filters__button filters__button--reset" type="reset">Сбросить</button>
+						</div>
+				
+					</form>
+				</aside>
+			</div>
+			<div class="products-container">
+				<h1 class="catalog__title">Каталог товаров</h1>
+				<div class="products">
+
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="site-footer">
+		<div class="site-footer__inner">
+			<a href="index.html" class="site-footer__logo">
+				<img src="images/logo.gif" alt="Meow Market" class="site-footer__logo-img">
+				Meow Market
+			</a>
+			<ul class="site-footer__contacts">
+				<li>+7 (800) 555-35-35</li>
+				<li>meowmarket@mail.ru</li>
+				<li>Москва, пр-т Вернадского, д. 78, с. 4</li>
+			</ul>
+			<p class="site-footer__copy"><span>©</span> 2026 Учебный проект. Все права защищены.</p>
+		</div>
+	</footer>
+	<button class="cat-vote-btn" id="openCatBtn" type="button">Голосование ♥</button>
+	<aside class="cat-panel" id="panel">
+		<div class="cat-panel__inner">
+			<div class="cat-panel__title">Заслуживает подарка?</div>
+			<div class="cat-panel__content"></div>
+		</div>
+		<button class="cat-panel__button" id="closeCatBtn" type="button">Да, он прекрасен!</button>
+	</aside>
+</body>
+
+</html>

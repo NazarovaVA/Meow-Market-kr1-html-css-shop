@@ -5,22 +5,24 @@ const reviewsPrev  = document.getElementById('revPrev');
 const reviewsNext  = document.getElementById('revNext');
 const REVIEW_STEP  = 330; // ширина карточки 300 + gap 30
 
-reviewsNext.addEventListener('click', () => {
-	const max = reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
-	if (reviewsTrack.scrollLeft >= max - 1) {
-		reviewsTrack.scrollTo({ left: 0, behavior: 'smooth' });
-	} else {
-		reviewsTrack.scrollBy({ left: REVIEW_STEP, behavior: 'smooth' });
-	}
-});
+if (reviewsNext) {
+	reviewsNext.addEventListener('click', () => {
+		const max = reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
+		if (reviewsTrack.scrollLeft >= max - 1) {
+			reviewsTrack.scrollTo({ left: 0, behavior: 'smooth' });
+		} else {
+			reviewsTrack.scrollBy({ left: REVIEW_STEP, behavior: 'smooth' });
+		}
+	});
 
-reviewsPrev.addEventListener('click', () => {
-	if (reviewsTrack.scrollLeft <= 0) {
-		reviewsTrack.scrollTo({ left: reviewsTrack.scrollWidth, behavior: 'smooth' });
-	} else {
-		reviewsTrack.scrollBy({ left: -REVIEW_STEP, behavior: 'smooth' });
-	}
-});
+	reviewsPrev.addEventListener('click', () => {
+		if (reviewsTrack.scrollLeft <= 0) {
+			reviewsTrack.scrollTo({ left: reviewsTrack.scrollWidth, behavior: 'smooth' });
+		} else {
+			reviewsTrack.scrollBy({ left: -REVIEW_STEP, behavior: 'smooth' });
+		}
+	});
+}
 
 // Слайдер шагов оформления товаров
 const stepSlides = document.querySelectorAll('.step-card__slide');
@@ -41,36 +43,37 @@ const nextStep = () => showStep((stepIndex + 1) % stepSlides.length);
 const startStep = () => { stepTimer ??= setInterval(nextStep, 3000); };
 const stopStep = () => { clearInterval(stepTimer); stepTimer = null; };
 
-// Клик по карточке - следующий шаг
-stepCard.addEventListener('click', () => {
-	nextStep();
-	stopStep();
-	startStep();
-});
-
-// Клик по точке - конкретный шаг
-stepDots.forEach(dot => dot.addEventListener('click', (e) => {
-	e.stopPropagation();
-	showStep(+dot.dataset.index);
-	stopStep();
-	startStep();
-}));
-
-// Enter/Space на карточке - следующий шаг
-stepCard.addEventListener('keydown', (e) => {
-	if (e.key === 'Enter' || e.key === ' ') {
-		e.preventDefault();
+if (stepCard) {
+	// Клик по карточке - следующий шаг
+	stepCard.addEventListener('click', () => {
 		nextStep();
 		stopStep();
 		startStep();
-	}
-});
+	});
 
-// Автозапуск, когда секция в зоне видимости
-new IntersectionObserver(
-	([entry]) => entry.isIntersecting ? startStep() : stopStep(),
-	{ threshold: 0.5 }
-).observe(stepSection);
+	// Клик по точке - конкретный шаг
+	stepDots.forEach(dot => dot.addEventListener('click', (e) => {
+		e.stopPropagation();
+		showStep(+dot.dataset.index);
+		stopStep();
+		startStep();
+	}));
+
+	// Enter/Space на карточке - следующий шаг
+	stepCard.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault();
+			nextStep();
+			stopStep();
+			startStep();
+		}
+	});
+	// Автозапуск, когда секция в зоне видимости
+	new IntersectionObserver(
+		([entry]) => entry.isIntersecting ? startStep() : stopStep(),
+		{ threshold: 0.5 }
+	).observe(stepSection);
+}
 
 // Популярные товары, рендер из JSON
 const productsGrid = document.querySelector('.products__grid');
@@ -91,6 +94,32 @@ async function getPopularItems() {
 						<div class="product-card__actions">
 							<button class="product-card__more">Подробнее</button>
 							<button class="product-card__buy">Заказать</button>
+						</div>
+					</div>
+				</div>
+			</article>`;
+	});
+};
+
+// Каталог товаров
+const productsContainer = document.querySelector('.products');
+
+async function getItems() {
+	const products = (await import('../data/products.json', { with: { type: 'json' } })).default.products;
+
+	products.forEach(product => {
+		productsContainer.innerHTML += `
+			<article class="product-card catalog-product-card" id="${product.id}"
+				style="background-image: url(${product.image_url})">
+				<div class="product-card__badge">${product.badge}</div>
+				<div class="product-card__spacer"></div>
+				<div class="product-card__content">
+					<div class="product-card__name catalog-product-card__name">${product.name}</div>
+					<div class="product-card__info catalog-product-card__info">
+						<div class="product-card__price catalog-product-card__price">${product.price}₽</div>
+						<div class="product-card__actions catalog-product-card__actions">
+							<button class="product-card__more catalog-product-card__more">Подробнее</button>
+							<button class="product-card__buy catalog-product-card__buy">Заказать</button>
 						</div>
 					</div>
 				</div>
@@ -129,7 +158,11 @@ async function getFact() {
 	}
 }
 
-factCard.addEventListener('click', () => getFact());
+if (factCard) {
+	factCard.addEventListener('click', () => getFact());
+}
+
+
 
 // Выезжающая панель
 const catPanel = document.getElementById('panel');
@@ -176,7 +209,13 @@ function typeLetter(fullText, element, i, speed) {
 
 // Начало
 (() => {
-	typeLetter(fullTextHeader, heroTitle, 0, 30);
-	getFact();
-	getPopularItems();
+	if (heroTitle) {
+		typeLetter(fullTextHeader, heroTitle, 0, 30);
+		getFact();
+		getPopularItems();
+	}
+
+	if (productsContainer) {
+		getItems();
+	}
 })();
