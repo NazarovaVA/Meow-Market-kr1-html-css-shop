@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="Добро пожаловать в Meow Market! Уютный магазин товаров для котиков. Игрушки, корм, лежанки и аксессуары. Всё для счастья вашего пушистика!">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Meow Market - Товары для котиков">
+	<meta property="og:description" content="Уютный магазин игрушек, корма и лежанок для ваших пушистиков.">
+	<meta property="og:image" content="https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/images/icon.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<link rel="icon" href="images/icon.svg" type="image/svg+xml">
+	<title>Meow Market - Главная</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="site-header__logo">
+			<a class="site-header__logo-img" href="index.html">
+				<img src="images/logo.gif" alt="Логотип магазина" />
+			</a>
+			<a class="site-header__logo-text" href="index.html">Meow Market</a>
+		</div>
+		<div class="site-header__nav-wrapper">
+			<nav class="site-nav">
+				<ul class="site-nav__list">
+					<li class="site-nav__item site-nav__item--active">
+						<a class="site-nav__link" href="index.html">Главная</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="#advantages">Преимущества</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="catalog.html">Каталог</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="order.html">Заказать</a>
+					</li>
+					<li class="site-nav__item">
+						<a class="site-nav__link" href="contacts.html">Контакты</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class="marquee">
+			<div class="marquee__track">
+				<span class="marquee__item">🐾 Скидка 15% на лежанки</span>
+				<span class="marquee__item">🚚 Бесплатная доставка от 2000 ₽</span>
+				<span class="marquee__item">🎁 Игрушка в подарок</span>
+				<span class="marquee__item">🔥 Распродажа домиков</span>
+				<span class="marquee__item">💳 Оплата при получении</span>
+				<span class="marquee__item">📦 Отправка в день заказа</span>
+				<span class="marquee__item">🐟 Корм с лососем в наличии</span>
+				<span class="marquee__item" aria-hidden="true">🐾 Скидка 15% на лежанки</span>
+				<span class="marquee__item" aria-hidden="true">🚚 Бесплатная доставка от 2000 ₽</span>
+				<span class="marquee__item" aria-hidden="true">🎁 Игрушка в подарок</span>
+				<span class="marquee__item" aria-hidden="true">🔥 Распродажа домиков</span>
+				<span class="marquee__item" aria-hidden="true">💳 Оплата при получении</span>
+				<span class="marquee__item" aria-hidden="true">📦 Отправка в день заказа</span>
+				<span class="marquee__item" aria-hidden="true">🐟 Корм с лососем в наличии</span>
+			</div>
+		</div>
+		<section class="hero">
+			<div class="hero__inner">
+				<h1 class="hero__title"></h1>
+				<div class="hero__content">
+					<div class="hero__left">
+						<div class="hero__text">
+							Мы создали Meow Market для того, чтобы у каждого котика было всё необходимое для счастливой
+							жизни. У нас вы найдёте
+							качественные игрушки, полезный корм, мягкие лежанки, средства для ухода и многое другое.
+							Наша команда — это
+							котовладельцы с опытом, которые лично проверяют каждый товар. Мы доставляем заказы быстро и
+							бережно, а ещё дарим бонусы
+							за покупки.
+						</div>
+						<div class="hero__actions">
+							<a class="button" href="#popular">Популярные товары</a>
+							<a class="button" href="#how-to-order">Как сделать заказ</a>
+						</div>
+					</div>
+					<div class="fact-card">
+						<div class="fact-card__title">Интересный факт</div>
+						<div class="fact-card__text"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="advantages" id="advantages">
+			<h2 class="section-title">Наши преимущества</h2>
+			<div class="advantages__grid">
+				<article class="advantage-card advantage-card--from-left">
+					<div class="advantage-card__inner">
+						<div class="advantage-card__front">
+							<h3 class="advantage-card__title">Быстрая доставка</h3>
+							<div class="advantage-card__icon advantage-card__icon--delivery"></div>
+						</div>
+						<div class="advantage-card__back">
+							<p class="advantage-card__text">
+								Мы знаем, что ждать игрушку или корм для кота — настоящее испытание. Поэтому доставляем
+								заказы по городу за 1 день, а по
+								области — за 2–3. При заказе от 2000 ₽ доставка бесплатная. Бережно упаковываем каждый
+								товар, чтобы он приехал в
+								целости.
+							</p>
+						</div>
+					</div>
+				</article>
+				<article class="advantage-card advantage-card--from-right">
+					<div class="advantage-card__inner">
+						<div class="advantage-card__front">
+							<h3 class="advantage-card__title">Проверенное качество</h3>
+							<div class="advantage-card__icon advantage-card__icon--tested"></div>
+						</div>
+						<div class="advantage-card__back">
+							<p class="advantage-card__text">
+								Мы не продаём то, что не купили бы своим котам. Каждый товар проходит проверку на
+								безопасность и качество. Работаем
+								только с проверенными брендами и сертифицированными производителями. Если что-то не
+								подойдёт — вернём деньги в течение
+								14 дней.
+							</p>
+						</div>
+					</div>
+				</article>
+				<article class="advantage-card advantage-card--from-left">
+					<div class="advantage-card__inner">
+						<div class="advantage-card__front">
+							<h3 class="advantage-card__title">Широкий ассортимент</h3>
+							<div class="advantage-card__icon advantage-card__icon--products"></div>
+						</div>
+						<div class="advantage-card__back">
+							<p class="advantage-card__text">
+								Игрушки, корм, лежанки, домики, средства для ухода и аксессуары — у нас есть всё, что
+								нужно вашему питомцу. Товары для
+								котят, взрослых и пожилых котов. Больше не нужно ездить по зоомагазинам — всё можно
+								заказать в одном месте.
+							</p>
+						</div>
+					</div>
+				</article>
+				<article class="advantage-card advantage-card--from-right">
+					<div class="advantage-card__inner">
+						<div class="advantage-card__front">
+							<h3 class="advantage-card__title">Сделано с любовью</h3>
+							<div class="advantage-card__icon advantage-card__icon--love"></div>
+						</div>
+						<div class="advantage-card__back">
+							<p class="advantage-card__text">
+								Meow Market создан людьми, которые сами живут с котами и тестируют товары на своих
+								питомцах. Мы понимаем, что
+								действительно нужно вашему пушистику. А ещё мы поддерживаем приюты для животных и
+								помогаем другим котикам найти дом.
+							</p>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+		<section class="popular" id="popular">
+			<h2 class="section-title">Замуррррчательные товары</h2>
+			<div class="products__grid"></div>
+		</section>
+		<section id="faq">
+			<h2 class="section-title">Часто задаваемые вопросы</h2>
+			<div class="faq__list">
+				<div class="faq-item">
+					<div class="faq-item__question">Как быстро вы доставляете заказы?</div>
+					<div class="faq-item__answer">По городу — за 1 день, по области — за 2–3 дня. При заказе от 2000 ₽
+						доставка
+						бесплатная. Также есть экспресс-доставка в день заказа.</div>
+				</div>
+				<div class="faq-item">
+					<div class="faq-item__question">Можно ли вернуть товар, если он не подошёл?</div>
+					<div class="faq-item__answer">Да, в течение 14 дней с момента получения. Достаточно связаться с
+						нашей
+						поддержкой — вернём деньги без лишних вопросов.</div>
+				</div>
+				<div class="faq-item">
+					<div class="faq-item__question">Вы работаете с юридическими лицами?</div>
+					<div class="faq-item__answer">Да, мы оформляем заказы для питомников, ветеринарных клиник и приютов.
+						Свяжитесь с нами для индивидуальных условий.</div>
+				</div>
+				<div class="faq-item">
+					<div class="faq-item__question">Как выбрать корм для пожилого кота?</div>
+					<div class="faq-item__answer">Наши консультанты помогут подобрать питание с учётом возраста и
+						здоровья
+						питомца. Просто напишите нам или оставьте заявку.</div>
+				</div>
+				<div class="faq-item">
+					<div class="faq-item__question">Есть ли у вас самовывоз?</div>
+					<div class="faq-item__answer">Да, вы можете забрать заказ со склада по адресу, указанному на
+						странице
+						«Контакты».</div>
+				</div>
+				<div class="faq-item">
+					<div class="faq-item__question">Как связаться с поддержкой?</div>
+					<div class="faq-item__answer">По телефону, email или через форму обратной связи. Мы отвечаем в
+						течение 15
+						минут и работаем 24/7.</div>
+				</div>
+			</div>
+		</section>
+		<section class="how-to-order" id="how-to-order">
+			<h2 class="section-title">Как сделать заказ</h2>
+
+			<div class="step-card" id="stepCard" role="button" tabindex="0" aria-label="Следующий шаг">
+				<div class="step-card__stage">
+					<div class="step-card__slide step-card__slide--active">
+						<div class="step-card__num">1</div>
+						<div class="step-card__content">
+							<div class="step-card__image step-card__image--choose"></div>
+							<h3 class="step-card__title">Выберите товар</h3>
+							<p class="step-card__text">Откройте каталог и найдите то, что понравится котику.</p>
+						</div>
+					</div>
+					<div class="step-card__slide">
+						<div class="step-card__num">2</div>
+						<div class="step-card__content">
+							<div class="step-card__image step-card__image--form"></div>
+							<h3 class="step-card__title">Оформите заявку</h3>
+							<p class="step-card__text">Заполните форму на странице «Заказать».</p>
+						</div>
+					</div>
+					<div class="step-card__slide">
+						<div class="step-card__num">3</div>
+						<div class="step-card__content">
+							<div class="step-card__image step-card__image--phone"></div>
+							<h3 class="step-card__title">Подтвердите заказ</h3>
+							<p class="step-card__text">Менеджер свяжется с вами в течение 15 минут.</p>
+						</div>
+					</div>
+					<div class="step-card__slide">
+						<div class="step-card__num">4</div>
+						<div class="step-card__content">
+							<div class="step-card__image step-card__image--end"></div>
+							<h3 class="step-card__title">Получите заказ</h3>
+							<p class="step-card__text">Доставим курьером или подготовим к самовывозу.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="step-card__dots">
+				<button class="step-card__dot step-card__dot--active" data-index="0"></button>
+				<button class="step-card__dot" data-index="1"></button>
+				<button class="step-card__dot" data-index="2"></button>
+				<button class="step-card__dot" data-index="3"></button>
+			</div>
+		</section>
+		<section class="reviews">
+			<h2 class="section-title">Что говорят о нас покупатели</h2>
+
+			<div class="reviews__wrapper">
+				<button class="reviews__arrow reviews__arrow--prev" id="revPrev" aria-label="Назад"></button>
+
+				<div class="reviews__track" id="revTrack">
+					<article class="review-card">
+						<div class="review-card__stars">★★★★★</div>
+						<p class="review-card__text">«Мой кот обожает мышку из Meow Market! Заказала ещё две про запас.»
+						</p>
+						<span class="review-card__author">Анна, Москва</span>
+					</article>
+					<article class="review-card">
+						<div class="review-card__stars">★★★★★</div>
+						<p class="review-card__text">«Быстрая доставка, качественные товары. Кот спит в лежанке целыми
+							днями.»</p>
+						<span class="review-card__author">Игорь, Санкт-Петербург</span>
+					</article>
+					<article class="review-card">
+						<div class="review-card__stars">★★★★★</div>
+						<p class="review-card__text">«Помогли подобрать корм для пожилого кота, теперь он снова
+							активный.»</p>
+						<span class="review-card__author">Мария, Казань</span>
+					</article>
+					<article class="review-card">
+						<div class="review-card__stars">★★★★★</div>
+						<p class="review-card__text">«Заказываю не первый раз. Всё приходит вовремя и в отличном
+							состоянии.»</p>
+						<span class="review-card__author">Дмитрий, Новосибирск</span>
+					</article>
+					<article class="review-card">
+						<div class="review-card__stars">★★★★★</div>
+						<p class="review-card__text">«Отличный магазин! Цены честные, ассортимент большой. Котик
+							доволен.»</p>
+						<span class="review-card__author">Ольга, Екатеринбург</span>
+					</article>
+				</div>
+				<button class="reviews__arrow reviews__arrow--next" id="revNext" aria-label="Вперёд"></button>
+			</div>
+		</section>
+	</main>
+	<footer class="site-footer">
+		<div class="site-footer__inner">
+			<a href="index.html" class="site-footer__logo">
+				<img src="images/logo.gif" alt="Meow Market" class="site-footer__logo-img">
+				Meow Market
+			</a>
+			<ul class="site-footer__contacts">
+				<li>+7 (800) 555-35-35</li>
+				<li>meowmarket@mail.ru</li>
+				<li>Москва, пр-т Вернадского, д. 78, с. 4</li>
+			</ul>
+			<p class="site-footer__copy"><span>©</span> 2026 Учебный проект. Все права защищены.</p>
+		</div>
+	</footer>
+	<button class="cat-vote-btn" id="openCatBtn" type="button">Голосование ♥</button>
+	<aside class="cat-panel" id="panel">
+		<div class="cat-panel__inner">
+			<div class="cat-panel__title">Заслуживает подарка?</div>
+			<div class="cat-panel__content"></div>
+		</div>
+		<button class="cat-panel__button" id="closeCatBtn" type="button">Да, он прекрасен!</button>
+	</aside>
+</body>
+
+</html>
