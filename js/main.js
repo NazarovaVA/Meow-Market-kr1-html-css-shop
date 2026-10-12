@@ -92,8 +92,8 @@ async function getPopularItems() {
 					<div class="product-card__info">
 						<div class="product-card__price">${product.price}₽</div>
 						<div class="product-card__actions">
-							<button class="product-card__more">Подробнее</button>
-							<button class="product-card__buy">Заказать</button>
+							<a class="product-card__more" href="product.html?id=${product.id}">Подробнее</a>
+							<a class="product-card__buy" href="order.html?id=${product.id}">Заказать</a>
 						</div>
 					</div>
 				</div>
@@ -118,13 +118,51 @@ async function getItems() {
 					<div class="product-card__info catalog-product-card__info">
 						<div class="product-card__price catalog-product-card__price">${product.price}₽</div>
 						<div class="product-card__actions catalog-product-card__actions">
-							<button class="product-card__more catalog-product-card__more">Подробнее</button>
-							<button class="product-card__buy catalog-product-card__buy">Заказать</button>
+							<a class="product-card__more catalog-product-card__more" href="product.html?id=${product.id}">Подробнее</a>
+							<a class="product-card__buy catalog-product-card__buy" href="order.html?id=${product.id}">Заказать</a>
 						</div>
 					</div>
 				</div>
 			</article>`;
 	});
+}
+
+// Страница товара
+const productSection = document.querySelector('.product');
+
+async function getProduct() {
+	const params = new URLSearchParams(window.location.search);
+	const id = params.get('id');
+	if (!id) return;
+
+	const products = (await import('../data/products.json', { with: { type: 'json' } })).default.products;
+	const product = products.find(p => p.id === id);
+
+	if (!product) {
+		document.querySelector('.product__title').textContent = 'Товар не найден';
+		return;
+	}
+
+	document.querySelector('.product__title').textContent = product.name;
+	document.querySelector('.product__price').textContent = product.price + '₽';
+	document.querySelector('.product__badge').textContent = product.badge || '';
+	document.querySelector('.product__description').textContent = product.description;
+	document.querySelector('.product__image').style.backgroundImage = `url(${product.image_url})`;
+
+	const tbody = document.querySelector('.product__table-body');
+	tbody.innerHTML = Object.entries(product.characteristics)
+		.map(([key, value]) => `
+			<tr>
+				<th scope="row">${key}</th>
+				<td>${value}</td>
+			</tr>
+		`)
+		.join('');
+
+	const orderBtn = document.querySelector('.product__actions .button');
+	if (orderBtn) {
+		orderBtn.href = `order.html?id=${product.id}`;
+	}
 }
 
 //Печатающиеся факты
@@ -217,5 +255,9 @@ function typeLetter(fullText, element, i, speed) {
 
 	if (productsContainer) {
 		getItems();
+	}
+	
+	if (productSection) {
+		getProduct();
 	}
 })();
