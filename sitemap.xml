@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/index.html</loc>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/catalog.html</loc>
+		<priority>0.8</priority>
+	</url>
+	<url>
+		<loc>https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/product.html</loc>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/order.html</loc>
+		<priority>0.6</priority>
+	</url>
+	<url>
+		<loc>https://NazarovaVA.github.io/Meow-Market-kr1-html-css-shop/contacts.html</loc>
+		<priority>0.5</priority>
+	</url>
+</urlset>
