@@ -217,8 +217,18 @@ async function getProduct() {
 const factCard = document.querySelector('.fact-card');
 const factText = document.querySelector('.fact-card__text');
 
-// Ссылка на Cloudflare Worker для обхода CORS
-const PROXY_URL = 'https://my-cors-proxy.vikulya-2007.workers.dev';
+//Обход CORS
+const PROXY_URL = 'https://corsproxy.io/?key=529630cd&url=';
+
+async function fetchWithTimeout(url, ms = 8000) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, { signal: ctrl.signal });
+  } finally {
+    clearTimeout(t);
+  }
+}
 
 async function translateText(text, targetLang = 'ru') {
 	const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
@@ -232,8 +242,8 @@ async function getFact() {
 	factText.innerHTML = '';
 	try {
 		const targetUrl = 'https://catfact.ninja/fact';
-		const finalUrl = `${PROXY_URL}/?url=${encodeURIComponent(targetUrl)}`;
-		const res = await fetch(finalUrl);
+		const finalUrl = `${PROXY_URL}${encodeURIComponent(targetUrl)}`;
+		const res = await fetchWithTimeout(finalUrl);
 		if (!res.ok) throw new Error(`HTTP ${res.status}`);
 		const data = await res.json();
 		const factTextRu = await translateText(data.fact, 'ru');
@@ -258,8 +268,8 @@ async function getCat() {
 	try {
 		catImageWrap.innerText = 'Загрузка...';
 		const targetUrl = 'https://aleatori.cat/random.json';
-		const finalUrl = `${PROXY_URL}/?url=${encodeURIComponent(targetUrl)}`;
-		const res = await fetch(finalUrl);
+		const finalUrl = `${PROXY_URL}${encodeURIComponent(targetUrl)}`;
+		const res = await fetchWithTimeout(finalUrl);
 		if (!res.ok) throw new Error(`HTTP ${res.status}`);
 		const data = await res.json();
 		catImageWrap.innerHTML = `<img src="${data.url}" alt="Фото кота дня">`;
