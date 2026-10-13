@@ -953,6 +953,7 @@ section {
 	border-radius: 20px;
 	text-align: center;
 	padding: 10px;
+	accent-color: var(--color-accent);
 }
 
 .filters__title {
