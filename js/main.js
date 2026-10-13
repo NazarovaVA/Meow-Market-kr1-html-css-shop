@@ -293,6 +293,25 @@ function typeLetter(fullText, element, i, speed) {
 	}
 }
 
+//Кнопка наверх
+const scrollTopBtn = document.getElementById('scrollTop');
+
+if (scrollTopBtn) {
+	// Показать/скрыть при скролле
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 400) {
+			scrollTopBtn.classList.add('scroll-top--visible');
+		} else {
+			scrollTopBtn.classList.remove('scroll-top--visible');
+		}
+	});
+
+	// Клик — плавный скролл наверх
+	scrollTopBtn.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+}
+
 // Начало
 (() => {
 	if (heroTitle) {
